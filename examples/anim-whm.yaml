@@ -1,0 +1,28 @@
+# WHM API — example profile (replace host and token_env with your values)
+# Install: cpanel-mcp-ctx add prod-whm --from this-file.yaml
+#
+# Before use:
+#   export WHM_TOKEN_PROD='your-whm-api-token'
+#
+default_server: prod-whm
+
+servers:
+  prod-whm:
+    type: whm
+    host: whm.example.com
+    port: 2087
+    auth:
+      method: token
+      username: root
+      token_env: WHM_TOKEN_PROD
+    spec_version: auto
+    verify_tls: true
+    timeout_seconds: 60
+    # Optional: read-only guard (uncomment to limit dispatch)
+    # allowed_operations:
+    #   - listaccts
+    #   - accountsummary
+    #   - systeminfo
+    # denied_operations:
+    #   - createacct
+    #   - removeacct

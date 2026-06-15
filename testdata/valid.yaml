@@ -1,0 +1,21 @@
+default_server: prod-root
+servers:
+  prod-root:
+    type: whm
+    host: whm.example.com
+    port: 2087
+    auth:
+      method: token
+      username: root
+      token_env: TEST_WHM_TOKEN
+    spec_version: auto
+    verify_tls: true
+  customer-acme:
+    type: uapi
+    host: whm.example.com
+    port: 2083
+    auth:
+      method: token
+      username: acme
+      token_env: TEST_UAPI_TOKEN
+    spec_version: "11.136.0"

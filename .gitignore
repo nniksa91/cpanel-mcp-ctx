@@ -1,0 +1,38 @@
+# Binaries
+/cpanel-mcp-ctx
+/dist/
+/bin/
+.tools/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+/vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Release
+/coverage.out
+/coverage.html
+
+# Local operator configs (never commit)
+/configs/
+/*.yaml
+!documentation/**/*.yaml
+!.goreleaser.yaml
+
+# Local toolchains (install Go via system package manager)
+.tools/

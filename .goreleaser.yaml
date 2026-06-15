@@ -1,0 +1,44 @@
+version: 2
+
+project_name: cpanel-mcp-ctx
+
+before:
+  hooks:
+    - go mod tidy
+    - go test ./...
+
+builds:
+  - id: cpanel-mcp-ctx
+    main: ./cmd/cpanel-mcp-ctx
+    binary: cpanel-mcp-ctx
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+
+archives:
+  - formats: [tar.gz]
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    files:
+      - LICENSE
+      - README.md
+
+checksum:
+  name_template: SHA256SUMS
+
+changelog:
+  sort: asc
+
+release:
+  github:
+    owner: nniksa91
+    name: cpanel-mcp-ctx

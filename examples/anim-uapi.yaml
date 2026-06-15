@@ -1,0 +1,20 @@
+# UAPI — example cPanel user account (replace host, username, token_env)
+# Install: cpanel-mcp-ctx add shop-uapi --from this-file.yaml
+#
+# Before use:
+#   export SHOP_UAPI_TOKEN='your-uapi-token'
+#
+default_server: shop-uapi
+
+servers:
+  shop-uapi:
+    type: uapi
+    host: cpanel.example.com
+    port: 2083
+    auth:
+      method: token
+      username: shopuser
+      token_env: SHOP_UAPI_TOKEN
+    spec_version: auto
+    verify_tls: true
+    timeout_seconds: 60

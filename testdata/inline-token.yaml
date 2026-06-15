@@ -1,0 +1,8 @@
+servers:
+  s:
+    type: whm
+    host: whm.example.com
+    auth:
+      method: token
+      username: root
+      token: inline-secret
